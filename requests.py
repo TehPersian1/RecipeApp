@@ -50,13 +50,55 @@ def get_meals_by_name(meal):
     recipe = None
     try:
         data = json.loads(f.read().decode('utf-8'))
-
         for recipe_data in data['meals']:
+
             recipe = Recipe(recipe_data['idMeal'],
                             recipe_data['strMeal'],
                             recipe_data['strCategory'],
                             recipe_data['strInstructions'],
-                            recipe_data['strMealThumb'])
+                            recipe_data['strMealThumb'],
+                            recipe_data['strYoutube'],
+                            )
+            recipe.ingredients.append(recipe_data['strIngredient1'])
+            recipe.ingredients.append(recipe_data['strIngredient2'])
+            recipe.ingredients.append(recipe_data['strIngredient3'])
+            recipe.ingredients.append(recipe_data['strIngredient4'])
+            recipe.ingredients.append(recipe_data['strIngredient5'])
+            recipe.ingredients.append(recipe_data['strIngredient6'])
+            recipe.ingredients.append(recipe_data['strIngredient7'])
+            recipe.ingredients.append(recipe_data['strIngredient8'])
+            recipe.ingredients.append(recipe_data['strIngredient9'])
+            recipe.ingredients.append(recipe_data['strIngredient10'])
+            recipe.ingredients.append(recipe_data['strIngredient11'])
+            recipe.ingredients.append(recipe_data['strIngredient12'])
+            recipe.ingredients.append(recipe_data['strIngredient13'])
+            recipe.ingredients.append(recipe_data['strIngredient14'])
+            recipe.ingredients.append(recipe_data['strIngredient15'])
+            recipe.ingredients.append(recipe_data['strIngredient16'])
+            recipe.ingredients.append(recipe_data['strIngredient17'])
+            recipe.ingredients.append(recipe_data['strIngredient18'])
+            recipe.ingredients.append(recipe_data['strIngredient19'])
+            recipe.ingredients.append(recipe_data['strIngredient20'])
+            recipe.measures.append(recipe_data['strMeasure1'])
+            recipe.measures.append(recipe_data['strMeasure2'])
+            recipe.measures.append(recipe_data['strMeasure3'])
+            recipe.measures.append(recipe_data['strMeasure4'])
+            recipe.measures.append(recipe_data['strMeasure5'])
+            recipe.measures.append(recipe_data['strMeasure6'])
+            recipe.measures.append(recipe_data['strMeasure7'])
+            recipe.measures.append(recipe_data['strMeasure8'])
+            recipe.measures.append(recipe_data['strMeasure9'])
+            recipe.measures.append(recipe_data['strMeasure10'])
+            recipe.measures.append(recipe_data['strMeasure11'])
+            recipe.measures.append(recipe_data['strMeasure12'])
+            recipe.measures.append(recipe_data['strMeasure13'])
+            recipe.measures.append(recipe_data['strMeasure14'])
+            recipe.measures.append(recipe_data['strMeasure15'])
+            recipe.measures.append(recipe_data['strMeasure16'])
+            recipe.measures.append(recipe_data['strMeasure17'])
+            recipe.measures.append(recipe_data['strMeasure18'])
+            recipe.measures.append(recipe_data['strMeasure19'])
+            recipe.measures.append(recipe_data['strMeasure20'])
 
     except (ValueError, TypeError, KeyError):
         print("Json Format Error")

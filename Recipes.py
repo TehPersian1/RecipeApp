@@ -1,7 +1,7 @@
 #!/usr/bin/env/python3
 import requests
-
-
+import os
+from time import sleep
 # display our main title to the console
 def show_title():
     print("My Recipe Program")
@@ -57,13 +57,25 @@ def search_meal_by_category(categories):
         print("invalid Category, please try again.")
 
 
-# displays the meal title as well as the recipe
+# displays all the information about the recipe
 def display_meal(recipe):
+    os.system('cls')
+    print()
+    print("View a Step by Step guide:", recipe.get_youtube())
+    print()
+    print("Ingredients: ")
+    for i in range(20):
+        if recipe.ingredients[i] != "":
+            print(recipe.ingredients[i] + " - " + recipe.measures[i])
     print()
     print("Recipe:", recipe.get_meal())
     print("-" * 64)
     print("Instructions:", recipe.get_instructions())
     print()
+    input("Press the Enter/Return key to return to the command menu... ")
+    sleep(1)
+    os.system('cls')
+    show_menu()
 
 
 # searches for a meal by prompting the user to enter its name
@@ -92,7 +104,7 @@ def search_meals_by_area():
     found = False
 
     # ask how to format this so that it matches the search
-    if search.lower() == "canadian" or search.lower() == "american" or search.lower() == "chinese"\
+    if         search.lower() == "canadian"   or search.lower() == "american"     or search.lower() == "chinese"\
             or search.lower() == "vietnamese" or search.lower() == "british"      or search.lower() == "french"\
             or search.lower() == "jamaican"   or search.lower() == "dutch"        or search.lower() == "egyptian"\
             or search.lower() == "greek"      or search.lower() == "indian"       or search.lower() == "japanese" \
@@ -133,6 +145,9 @@ def main():
             search_meals_by_area()
         else:
             print("Not a valid command. Please try again \n")
+            sleep(1)
+            os.system('cls')
+            show_menu()
 
 
 if __name__ == '__main__':
