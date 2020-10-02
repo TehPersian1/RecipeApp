@@ -40,12 +40,15 @@ class Meal:
 
 # Create an Object to store our meal, its name, instructions, and the thumbnail icon.
 class Recipe:
-    def __init__(self, meal_id, meal, category, instructions, meal_thumb):
+    def __init__(self, meal_id, meal, category, instructions, meal_thumb, youtube):
         self.__meal_id = meal_id
         self.__meal = meal
         self.__category = category
         self.__instructions = instructions
         self.__meal_thumb = meal_thumb
+        self.__youtube = youtube
+        self.ingredients = []
+        self.measures = []
 
     def get_meal_id(self):
         return self.__meal_id
@@ -76,6 +79,12 @@ class Recipe:
 
     def set_meal_thumb(self, meal_thumb):
         self.__meal_thumb = meal_thumb
+
+    def get_youtube(self):
+        return self.__youtube
+
+    def set_youtube(self, youtube):
+        self.__youtube = youtube
 
 
 class Area:
