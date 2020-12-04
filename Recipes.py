@@ -6,13 +6,19 @@ import tkinter as tk
 HEIGHT = 800
 WIDTH = 1600
 
+# CPSC 254 FINAL PROJECT
+# THE MEAL DB RECIPE APP
+# CREATED BY SHERVIN, MILES, AND SUNNY
+# Professor David Heckathorn
 
-# display our main title to the console
+
+# display our main title to the console on program launch
 def show_title():
     print("My Recipe Program")
     print()
 
-
+# This function is no longer needed as well will be implementing the GUI, but we included it as part of the original
+# source code
 # Display Command Menu to the user
 def show_menu():
     print("COMMAND MENU")
@@ -24,7 +30,7 @@ def show_menu():
     print()
 
 
-# Lists all available categories to the main console.
+# Lists all available categories to the GUI
 def list_categories(categories, recipe_label):
     print("CATEGORIES")
     print("-" * 20)
@@ -41,7 +47,7 @@ def list_categories(categories, recipe_label):
     print()
 
 
-# generates a list of meals based on the category selected
+# generates a list of meals based on the category selected and displays them to the GUI
 def list_meals_by_category(category, meals, recipe_label):
     print(category.upper() + " MEALS")
     print("-" * 30)
@@ -59,7 +65,7 @@ def list_meals_by_category(category, meals, recipe_label):
     print()
 
 
-# searches the categories to make sure the user's input was valid.
+# searches the categories to make sure the user's input in the GUI was valid.
 def search_meal_by_category(categories, entry, recipe_label):
     lookup_category = entry
     found = False
@@ -77,7 +83,7 @@ def search_meal_by_category(categories, entry, recipe_label):
         print("invalid Category, please try again.")
 
 
-# displays all the information about the recipe
+# displays all the information about the recipe, including ingredients, measurements, instructions, and the youtube link
 def display_meal(recipe, recipe_label):
     os.system('cls')
     print()
@@ -96,7 +102,7 @@ def display_meal(recipe, recipe_label):
     print()
 
 
-# searches for a meal by prompting the user to enter its name
+# Pulls the information from the GUI search bar and uses that to search for the meal
 def search_meal_by_name(entry, recipe_label):
     lookup_meal = entry
     meal = requests.get_meals_by_name(lookup_meal)
@@ -107,6 +113,7 @@ def search_meal_by_name(entry, recipe_label):
         print("A recipe for this meal was not found")
 
 
+# lists different meals based on an area or geographic region that the user types in
 def list_meal_by_area(search, areas, recipe_label):
     print(search.upper(), "MEALS")
     print("-" * 64)
@@ -120,14 +127,12 @@ def list_meal_by_area(search, areas, recipe_label):
     + recipe_area[4] + '\n' + recipe_area[5] + '\n' + recipe_area[6] + '\n' + recipe_area[7] + '\n' + recipe_area[8] \
     + '\n' + recipe_area[9] + '\n' + recipe_area[10] + '\n' + recipe_area[11] + '\n' + recipe_area[12] + '\n' + recipe_area[13]
     print()
-# ask how to format this so it holds the values I want.
 
 
 def search_meals_by_area(entry, recipe_label):
     search = entry
     found = False
 
-    # ask how to format this so that it matches the search
     if         search.lower() == "canadian"   or search.lower() == "american"     or search.lower() == "chinese"\
             or search.lower() == "vietnamese" or search.lower() == "british"      or search.lower() == "french"\
             or search.lower() == "jamaican"   or search.lower() == "dutch"        or search.lower() == "egyptian"\
@@ -139,7 +144,6 @@ def search_meals_by_area(entry, recipe_label):
             or search.lower() == "slovakian"  or search.lower() == "thai"         or search.lower() == "arabic":
         found = True
 
-    # make sure this is the right format for testing the search
     if found:
         areas = requests.get_meals_by_area(search)
         list_meal_by_area(search, areas, recipe_label)
@@ -179,10 +183,10 @@ def main():
     root.mainloop()
     # end of gui
 
-    #while True:
+    #   while True:
      #   command = input("Command: ")
      #   if command == "1":
-     #       list_categories(categories)
+     #      list_categories(categories)
      #   elif command == "2":
     #        search_meal_by_category(categories)
     #    elif command == "3":
@@ -197,6 +201,7 @@ def main():
     #        sleep(1)
      #       os.system('cls')
 
+# ^ this portion of code is commented out because we implemented a gui, so it is no longer needed.
 
 if __name__ == '__main__':
     main()
